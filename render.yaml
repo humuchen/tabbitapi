@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: tabbit2api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node src/server.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 18.20.0
+      - key: TABBIT_VERSION
+        value: 1.6.20(10106020)
+      - key: TABBIT_TEST_MODEL
+        value: Default
+      - key: PORT
+        value: 10000
+      # 以下敏感变量请在 Render Dashboard 手动设置，不要写在代码里：
+      # TABBIT_COOKIE - 你的 Tabbit 登录 Cookie
+      # API_KEY - 可选，保护代理端点的密钥
+      # TABBIT_SIGN_KEY - 可选，留空则自动拉取
